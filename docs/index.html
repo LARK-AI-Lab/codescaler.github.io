@@ -142,7 +142,7 @@
                       <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg"
                         alt="Hugging Face" style="height: 1em; vertical-align: middle;" />
                     </span>
-                    <span>Reward Models</span>
+                    <span>CodeScaler RMs</span>
                   </a>
                 </span>
                 <!-- 这里原来有 Leaderboard 按钮，已按需求去掉 -->
@@ -218,7 +218,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-11 has-text-centered">
-          <h2 class="title is-3 section-title">RL Results</h2>
+          <h2 class="title is-3 section-title">Training Time Scaling (RL) Results</h2>
           <div class="content has-text-justified">
             <p class="has-text-centered">
               <img src="./images/rl_table.png" alt="RL Results" class="teaser-image wide-image" />
@@ -234,6 +234,17 @@
               enables the policy to better capture code structure, refine reasoning paths, and explore a broader
               solution space.
             </p>
+            <p class="has-text-centered">
+              <img src="./images/quest.png" alt="QueST Results" class="teaser-image wide-image" />
+            </p>
+            <p>
+              Training without test cases provides a key advantage, it enables us to scale the 
+              RL training data which in turn allows continuous performance improvements. 
+              Starting from Qwen3-8B-Base trained on DeepCoder with <strong>CodeScaler</strong>, 
+              we perform continual RL training on the synthetic problems dataset. 
+              The model exhibits steady and progressive performance gains as training 
+              proceeds with <strong>CodeScaler</strong>, demonstrating its scalability for large-scale RL training.
+            </p>
           </div>
         </div>
       </div>
@@ -244,7 +255,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-11 has-text-centered">
-          <h2 class="title is-3 section-title">Test Time Scaling Results</h2>
+          <h2 class="title is-3 section-title">Test Time Scaling (BoN) Results</h2>
           <div class="content has-text-justified">
             <p class="has-text-centered">
               <img src="./images/tts.png" alt="Test Time Scaling Results" class="teaser-image wide-image" />
@@ -255,7 +266,7 @@
               efficient test-time scaling (TTS). We compare against
               unit-test-based methods, represented by CURE, which synthesizes unit
               tests for each problem and selects the solution that passes the most tests, as well as
-              other reward models. Our model substantially outperforms existing reward
+              other reward models. <strong>CodeScaler</strong> substantially outperforms existing reward
               models and achieves performance comparable to CURE, while requiring
               10× lower latency. This makes our method particularly attractive for
               real-world deployment, where both solution quality and inference efficiency are
