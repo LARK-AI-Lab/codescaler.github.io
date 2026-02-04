@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="LiveCodeBench: Holistic and Contamination Free Evaluation of Large
+      Language Models for Code" />
+  <meta name="keywords" content="LiveCodeBench, Code, Large Language Models, LLM, Code LLM, Evaluation, Benchmark" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>
+    LiveCodeBench: Holistic and Contamination Free Evaluation of Large
+    Language Models for Code
+  </title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+
+      gtag("js", new Date())
+
+      gtag("config", "G-PYVRSFMDRL")
+    </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./css/bulma.min.css" />
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css" />
+  <link rel="stylesheet" href="./css/bulma-slider.min.css" />
+  <link rel="stylesheet" href="./css/fontawesome.all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="icon" href="./images/favicon.svg" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./js/fontawesome.all.min.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+  <script src="./js/index.js"></script>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              ⚖️CodeScaler: Scaling Code LLM Training and Test-Time Inference via Execution-Free Reward Models
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Xiao Zhu<sup>1,*</sup>,
+              </span>
+              <span class="author-block">
+                Xinyu Zhou<sup>1,*</sup>,
+              </span>
+              <span class="author-block">
+                Boyu Zhu<sup>2,4</sup>,
+              </span>
+              <span class="author-block">
+                Hanxu Hu<sup>5</sup>,
+              </span>
+              <span class="author-block">
+                Mingzhe Du<sup>6</sup>,
+              </span>
+              <span class="author-block">
+                Haotian Zhang<sup>2</sup>,
+              </span>
+              <span class="author-block">
+                Huiming Wang<sup>2,&dagger;</sup>,
+              </span>
+              <span class="author-block">
+                Zhijiang Guo<sup>1,3,&dagger;</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>LARK, HKUST(GZ)</span>
+              <span class="author-block"><sup>2</sup>Kuaishou Technology</span>
+              <span class="author-block"><sup>3</sup>HKUST</span>
+              <span class="author-block"><sup>4</sup>UCL</span>
+              <span class="author-block"><sup>5</sup>UZH</span>
+              <span class="author-block"><sup>6</sup>NUS</span>
+            </div>
+
+            <div class="is-size-6 publication-authors">
+              <span class="author-block">* Equal Contribution,&nbsp;&dagger; Corresponding Author</span>
+            </div>
+
+            <div class="is-size-6 publication-authors">
+              <span class="author-block">
+                Corresponding to:
+                <a href="mailto:zhijiangguo@hkust-gz.edu.cn">zhijiangguo@hkust-gz.edu.cn</a>,
+                <a href="mailto:huiming_wang@mymail.sutd.edu.sg">huiming_wang@mymail.sutd.edu.sg</a>
+              </span>
+            </div>
+
+            <!-- 保留 Paper / Code / Data 按钮，只移除 Leaderboard 相关按钮 -->
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/LARK-AI-Lab/CodeScaler"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Hugging Face: CodeScalerPair-51K -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/LARK-Lab/CodeScalerPair-51K"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg"
+                        alt="Hugging Face" style="height: 1em; vertical-align: middle;" />
+                    </span>
+                    <span>CodeScalerPair-51K</span>
+                  </a>
+                </span>
+
+                <!-- Hugging Face: Reward Models -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/LARK-Lab/CodeScaler-8B"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg"
+                        alt="Hugging Face" style="height: 1em; vertical-align: middle;" />
+                    </span>
+                    <span>Reward Models</span>
+                  </a>
+                </span>
+                <!-- 这里原来有 Leaderboard 按钮，已按需求去掉 -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Main content -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-11 has-text-centered">
+          <h2 class="title is-3 section-title">News</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-11 has-text-centered">
+          <h2 class="title is-3 section-title">Introduction</h2>
+          <div class="content has-text-justified">
+            <p>
+              Reinforcement Learning from Verifiable Rewards (RLVR) has driven recent progress in code large language
+              models by leveraging execution-based feedback from unit tests, but its scalability is fundamentally
+              constrained by the availability and reliability of high-quality test cases. We propose
+              <strong>CodeScaler</strong>, an execution-free reward model designed to scale both reinforcement learning
+              training and test-time inference for code generation. <strong>CodeScaler</strong> is trained on carefully
+              curated preference data derived from verified code problems and incorporates syntax-aware code extraction
+              and validity-preserving reward shaping to ensure stable and robust optimization. Across five coding
+              benchmarks, <strong>CodeScaler</strong> improves Qwen3-8B-Base by an average of
+              <strong>+11.72</strong> points, outperforming binary execution-based RL by <strong>+1.82</strong> points,
+              and enables scalable reinforcement learning on synthetic datasets without any test cases. At inference
+              time, <strong>CodeScaler</strong> serves as an effective test-time scaling method, achieving performance
+              comparable to unit test approaches while providing a <strong>10×</strong> reduction in latency. Moreover,
+              <strong>CodeScaler</strong> surpasses existing reward models on RM-Bench not only in the code domain
+              (+3.3 points), but also in general and reasoning domains (+2.7 points on average).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-11 has-text-centered">
+          <h2 class="title is-3 section-title">Overview</h2>
+          <div class="content has-text-justified">
+            <p class="has-text-centered">
+              <img src="./images/overview.png" alt="CodeScaler Overview" class="teaser-image wide-image" />
+            </p>
+            <p>
+              We propose <strong>CodeScaler</strong>, an execution-free reward model designed to scale both
+              reinforcement learning training and test-time inference for code generation.
+              <strong>CodeScaler</strong> is trained on carefully curated preference data derived from verified code
+              problems and incorporates syntax-aware code extraction and validity-preserving reward shaping to ensure
+              stable and robust optimization.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-11 has-text-centered">
+          <h2 class="title is-3 section-title">RL Results</h2>
+          <div class="content has-text-justified">
+            <p class="has-text-centered">
+              <img src="./images/rl_table.png" alt="RL Results" class="teaser-image wide-image" />
+            </p>
+            <p>
+              We conduct reinforcement learning on Qwen3-8B-Base and Qwen3-14B-Base
+              using the DeepCoder training set, which contains programming tasks with high-quality,
+              verified test cases. We compare three sources of reward signals during RL:
+              binary execution feedback and two other reward models. Our method consistently delivers
+              the strongest gains. We attribute this to the dense and structured reward signals
+              produced by our model. Unlike binary pass/fail feedback, our continuous scoring provides informative
+              gradients by assigning intermediate rewards to partially correct or logically sound solutions. This
+              enables the policy to better capture code structure, refine reasoning paths, and explore a broader
+              solution space.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-11 has-text-centered">
+          <h2 class="title is-3 section-title">Test Time Scaling Results</h2>
+          <div class="content has-text-justified">
+            <p class="has-text-centered">
+              <img src="./images/tts.png" alt="Test Time Scaling Results" class="teaser-image wide-image" />
+            </p>
+            <p>
+              By assigning scalar rewards to generated code, our model naturally induces a ranking over
+              candidate solutions, making it directly applicable to Best-of-N sampling and
+              efficient test-time scaling (TTS). We compare against
+              unit-test-based methods, represented by CURE, which synthesizes unit
+              tests for each problem and selects the solution that passes the most tests, as well as
+              other reward models. Our model substantially outperforms existing reward
+              models and achieves performance comparable to CURE, while requiring
+              10× lower latency. This makes our method particularly attractive for
+              real-world deployment, where both solution quality and inference efficiency are
+              critical.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-11 has-text-centered">
+          <h2 class="title is-3 section-title">RM-Bench Results</h2>
+          <div class="content has-text-justified">
+            <p class="has-text-centered">
+              <img src="./images/rmbench.png" alt="Reward Model Benchmark Results" class="teaser-image wide-image" />
+            </p>
+            <p>
+              We evaluated <strong>CodeScaler</strong> on standard reward model benchmarks. Although
+              <strong>CodeScaler</strong> was not designed as a general purpose reward model, testing it on these
+              benchmarks still provides valuable insights. We used RM-Bench to compare <strong>CodeScaler</strong>
+              against other reward models. Beyond the clear improvement in code tasks (73.6 → 76.9), we found a
+              surprising result: even though <strong>CodeScaler</strong> was trained only on code, it also improved in
+              general (Chat, 80.6 → 83.0) and reasoning domains (Math, 75.0 → 79.9). This indicates that learning to
+              evaluate code sharpens the model’s overall judgment, even beyond the code domain.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+Wait for bibtex
+      </code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              The source code from this website is borrowed from <a
+                href="https://github.com/LiveCodeBench/livecodebench.github.io">livecodebench.github.io</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
